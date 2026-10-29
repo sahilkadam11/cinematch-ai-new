@@ -1,35 +1,27 @@
-// Curated offline educational dataset. All genres/keywords are illustrative descriptors.
-const MOVIES = [
-[1,'Inception',2010,8.8,'Sci-Fi|Thriller|Action','dreams|heist|mind-bending|reality','Christopher Nolan','Leonardo DiCaprio|Joseph Gordon-Levitt','A skilled thief enters layered dreams to attempt an impossible idea heist.','🌌'],
-[2,'Interstellar',2014,8.7,'Sci-Fi|Adventure|Drama','space|time|survival|family','Christopher Nolan','Matthew McConaughey|Anne Hathaway','Explorers travel beyond Earth to find a future for humanity.','🪐'],
-[3,'The Dark Knight',2008,9.0,'Action|Crime|Drama','superhero|vigilante|chaos|justice','Christopher Nolan','Christian Bale|Heath Ledger','Batman faces a criminal mastermind who puts Gotham to the test.','🦇'],
-[4,'The Prestige',2006,8.5,'Drama|Mystery|Sci-Fi','illusion|rivalry|secrets|mind-bending','Christopher Nolan','Christian Bale|Hugh Jackman','Two magicians become consumed by an escalating rivalry.','🎩'],
-[5,'Dunkirk',2017,7.8,'War|Drama|Action','survival|history|rescue|time','Christopher Nolan','Fionn Whitehead|Tom Hardy','Allied soldiers struggle to escape from a besieged beach.','⛵'],
-[6,'Oppenheimer',2023,8.6,'Drama|History|Thriller','science|history|morality|war','Christopher Nolan','Cillian Murphy|Emily Blunt','A physicist navigates the creation and consequences of a new weapon.','⚛️'],
-[7,'The Matrix',1999,8.7,'Sci-Fi|Action|Thriller','reality|simulation|technology|rebellion','Lana Wachowski','Keanu Reeves|Laurence Fishburne','A hacker discovers a hidden truth about his world.','💊'],
-[8,'Blade Runner 2049',2017,8.0,'Sci-Fi|Mystery|Drama','future|identity|technology|reality','Denis Villeneuve','Ryan Gosling|Harrison Ford','An officer uncovers a mystery that could reshape society.','🌆'],
-[9,'Arrival',2016,7.9,'Sci-Fi|Drama|Mystery','aliens|language|time|communication','Denis Villeneuve','Amy Adams|Jeremy Renner','A linguist tries to communicate with mysterious visitors.','🛸'],
-[10,'Dune',2021,8.0,'Sci-Fi|Adventure|Drama','space|destiny|politics|survival','Denis Villeneuve','Timothée Chalamet|Rebecca Ferguson','A young heir journeys to a perilous desert planet.','🏜️'],
-[11,'Dune: Part Two',2024,8.5,'Sci-Fi|Adventure|Action','space|destiny|politics|rebellion','Denis Villeneuve','Timothée Chalamet|Zendaya','A young leader faces choices that determine a planet’s future.','🌙'],
-[12,'Shutter Island',2010,8.2,'Thriller|Mystery|Drama','psychological|secrets|reality|investigation','Martin Scorsese','Leonardo DiCaprio|Mark Ruffalo','An investigator searches for a missing patient at an isolated hospital.','🏝️'],
-[13,'The Departed',2006,8.5,'Crime|Thriller|Drama','undercover|secrets|crime|betrayal','Martin Scorsese','Leonardo DiCaprio|Matt Damon','An undercover agent and an informant battle to protect their identities.','🕵️'],
-[14,'Goodfellas',1990,8.7,'Crime|Drama','mafia|loyalty|crime|betrayal','Martin Scorsese','Ray Liotta|Robert De Niro','A young man becomes deeply involved in organized crime.','🍸'],
-[15,'Parasite',2019,8.5,'Thriller|Drama|Comedy','class|secrets|society|family','Bong Joon-ho','Song Kang-ho|Choi Woo-shik','Two families become entangled through an unusual opportunity.','🏠'],
-[16,'Snowpiercer',2013,7.1,'Sci-Fi|Action|Thriller','class|survival|rebellion|future','Bong Joon-ho','Chris Evans|Song Kang-ho','Survivors on a moving train challenge an unequal social order.','🚆'],
-[17,'The Shawshank Redemption',1994,9.3,'Drama|Crime','hope|friendship|prison|freedom','Frank Darabont','Tim Robbins|Morgan Freeman','A prisoner forms an enduring friendship while holding on to hope.','🔓'],
-[18,'The Green Mile',1999,8.6,'Drama|Fantasy|Crime','prison|justice|friendship|miracle','Frank Darabont','Tom Hanks|Michael Clarke Duncan','A prison officer witnesses extraordinary events on death row.','✨'],
-[19,'Forrest Gump',1994,8.8,'Drama|Romance','family|friendship|history|life','Robert Zemeckis','Tom Hanks|Robin Wright','A kind-hearted man experiences remarkable moments of history.','🏃'],
-[20,'Cast Away',2000,7.8,'Adventure|Drama','isolation|survival|hope|journey','Robert Zemeckis','Tom Hanks|Helen Hunt','A stranded traveler must learn to survive alone.','🏝️'],
-[21,'Back to the Future',1985,8.5,'Sci-Fi|Adventure|Comedy','time|family|future|journey','Robert Zemeckis','Michael J. Fox|Christopher Lloyd','A teenager is accidentally transported to the past.','⚡'],
-[22,'Spider-Man: Into the Spider-Verse',2018,8.4,'Animation|Action|Adventure','superhero|multiverse|identity|family','Bob Persichetti','Shameik Moore|Jake Johnson','A young hero encounters Spider-People from other worlds.','🕷️'],
-[23,'Spider-Man: Across the Spider-Verse',2023,8.6,'Animation|Action|Adventure','superhero|multiverse|identity|destiny','Joaquim Dos Santos','Shameik Moore|Hailee Steinfeld','A young hero journeys across parallel universes.','🕸️'],
-[24,'Coco',2017,8.4,'Animation|Family|Fantasy','music|family|memory|journey','Lee Unkrich','Anthony Gonzalez|Gael García Bernal','A young musician sets off on a colorful family adventure.','🎸'],
-[25,'Inside Out',2015,8.1,'Animation|Family|Comedy','emotions|family|identity|friendship','Pete Docter','Amy Poehler|Phyllis Smith','Emotions guide a girl through an important life change.','🧠'],
-[26,'Soul',2020,8.0,'Animation|Family|Fantasy','music|purpose|identity|life','Pete Docter','Jamie Foxx|Tina Fey','A musician unexpectedly explores the meaning of life.','🎹'],
-[27,'Toy Story',1995,8.3,'Animation|Adventure|Comedy','friendship|family|loyalty|journey','John Lasseter','Tom Hanks|Tim Allen','A group of toys embarks on a playful adventure.','🧸'],
-[28,'3 Idiots',2009,8.4,'Comedy|Drama','college|friendship|education|purpose','Rajkumar Hirani','Aamir Khan|R. Madhavan','Three engineering students discover what learning really means.','🎓'],
-[29,'PK',2014,8.1,'Comedy|Drama|Sci-Fi','society|belief|identity|questions','Rajkumar Hirani','Aamir Khan|Anushka Sharma','An outsider’s questions challenge everyday assumptions.','👽'],
-[30,'Dangal',2016,8.3,'Drama|Sport','family|sports|ambition|training','Nitesh Tiwari','Aamir Khan|Fatima Sana Shaikh','A determined father helps his daughters pursue wrestling dreams.','🥇'],
-[31,'Zindagi Na Milegi Dobara',2011,8.2,'Comedy|Drama|Adventure','friendship|travel|purpose|life','Zoya Akhtar','Hrithik Roshan|Farhan Akhtar','Friends reconnect during a journey through Spain.','🌅'],
-[32,'Dil Chahta Hai',2001,8.1,'Comedy|Drama|Romance','friendship|travel|life|relationships','Farhan Akhtar','Aamir Khan|Saif Ali Khan','Three friends navigate adulthood and changing relationships.','🌊']
-].map(([id,title,year,rating,genres,keywords,director,cast,overview,emoji])=>({id,title,year,rating,genres:genres.split('|'),keywords:keywords.split('|'),director,cast:cast.split('|'),overview,emoji}));
+{
+  id: 37,
+  title: "Inception",
+  year: 2010,
+  genres: ["Sci-Fi", "Thriller", "Action"],
+  director: "Christopher Nolan",
+  cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt"],
+  keywords: ["dreams", "subconscious", "heist", "reality"]
+},
+{
+  id: 38,
+  title: "The Martian",
+  year: 2015,
+  genres: ["Sci-Fi", "Adventure", "Drama"],
+  director: "Ridley Scott",
+  cast: ["Matt Damon", "Jessica Chastain"],
+  keywords: ["mars", "space", "survival", "astronaut"]
+},
+{
+  id: 39,
+  title: "Shutter Island",
+  year: 2010,
+  genres: ["Mystery", "Thriller"],
+  director: "Martin Scorsese",
+  cast: ["Leonardo DiCaprio", "Mark Ruffalo"],
+  keywords: ["mystery", "psychological", "investigation"]
+}
